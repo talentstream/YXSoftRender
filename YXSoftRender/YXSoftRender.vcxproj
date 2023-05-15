@@ -87,6 +87,7 @@
     <QtRcc Include="YXSoftRender.qrc" />
     <QtUic Include="YXSoftRender.ui" />
     <QtMoc Include="YXSoftRender.h" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -94,6 +95,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buffer.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="Renderer.h" />

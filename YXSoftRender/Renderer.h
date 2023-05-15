@@ -4,6 +4,8 @@
 #include<qlabel.h>
 #include"Configuration.h"
 #include"Drawer.h"
+#include"Color.h"
+#include"Buffer.h"
 
 class Renderer
 {

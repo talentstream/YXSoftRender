@@ -23,15 +23,13 @@ float Barycentric2DFunction(Eigen::Vector3f begin, Eigen::Vector3f end, Eigen::V
 
 }
 
-void Drawer::DrawPixel(const Eigen::Vector2f& point, const Eigen::Vector3f& color)
+void Drawer::DrawPixel(const Eigen::Vector2f& point, Color color, Buffer<Color>& buffer)
 {
 	int x = point.x(), y = point.y();
-	int r = color.x(), g = color.y(), b = color.z();
-	QRgb qcolor = qRgb(r, g, b);
-	configuration.canvas.setPixel(x, y, qcolor);
+	buffer.SetData(color, x, y);
 }
 
-void Drawer::DrawLine(Eigen::Vector2f begin, Eigen::Vector2f end, Eigen::Vector3f color)
+void Drawer::DrawLine(Eigen::Vector2f begin, Eigen::Vector2f end, Color color, Buffer<Color>& buffer)
 {
 	int x0 = begin.x(), y0 = begin.y();
 	int x1 = end.x(), y1 = end.y();
@@ -43,14 +41,14 @@ void Drawer::DrawLine(Eigen::Vector2f begin, Eigen::Vector2f end, Eigen::Vector3
 
 	while (x0 != x1 || y0 != y1)
 	{
-		DrawPixel(Eigen::Vector2f(x0, y0), color);
+		DrawPixel(Eigen::Vector2f(x0, y0), color, buffer);
 		int e2 = err;
 		if (e2 > -dx) { err -= dy; x0 += sx; }
 		if (e2 < dy) { err += dx; y0 += sy; }
 	}
 }
 
-void Drawer::DrawTriangle(Eigen::Vector3f v0, Eigen::Vector3f v1, Eigen::Vector3f v2, Eigen::Vector3f color)
+void Drawer::DrawTriangle(Eigen::Vector3f v0, Eigen::Vector3f v1, Eigen::Vector3f v2, Color color, Buffer<Color>& buffer)
 {
 	int min_x = std::min(v0.x(), std::min(v1.x(), v2.x()));
 	int max_x = std::max(v0.x(), std::max(v1.x(), v2.x()));
@@ -68,7 +66,7 @@ void Drawer::DrawTriangle(Eigen::Vector3f v0, Eigen::Vector3f v1, Eigen::Vector3
 			float gamma = Barycentric2DFunction(v0, v1, v) / Barycentric2DFunction(v0, v1, v2);
 			if (!(alpha > 0 && beta > 0 && gamma > 0)) continue;
 
-			DrawPixel(Eigen::Vector2f(x, y), color);
+			DrawPixel(Eigen::Vector2f(x, y), color, buffer);
 		}
 	}
 }
