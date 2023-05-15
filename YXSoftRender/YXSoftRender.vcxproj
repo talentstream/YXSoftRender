@@ -91,6 +91,7 @@
     <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="RenderThread.cpp" />
     <ClCompile Include="YXSoftRender.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -100,6 +101,7 @@
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="Renderer.h" />
+    <QtMoc Include="RenderThread.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

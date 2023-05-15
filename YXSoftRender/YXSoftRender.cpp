@@ -1,6 +1,7 @@
 #include "YXSoftRender.h"
 #include<QtWidgets>
 #include"Configuration.h"
+#include"RenderThread.h"
 
 YXSoftRender::YXSoftRender(QWidget *parent)
     : QMainWindow(parent)

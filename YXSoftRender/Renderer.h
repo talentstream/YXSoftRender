@@ -12,5 +12,7 @@ class Renderer
 public:
 	void Render();
 	void Display();
+	Renderer();
+	Buffer<Color>* buffer;
 };
 

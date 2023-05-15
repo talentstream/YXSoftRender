@@ -3,6 +3,7 @@
 #include <QtWidgets/QApplication>
 
 #include"Renderer.h"
+#include"RenderThread.h"
 #include"Configuration.h"
 
 int main(int argc, char *argv[])
@@ -11,9 +12,8 @@ int main(int argc, char *argv[])
     YXSoftRender w;
     w.show();
 
-    Renderer renderer = Renderer();
-    renderer.Render();
-    renderer.Display();
+    RenderThread* rt = new RenderThread(&a);
+    rt->Run();
 
     return a.exec();
 }

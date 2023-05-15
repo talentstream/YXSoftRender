@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_YXSoftRender.h"
+#include"Renderer.h"
 
 class YXSoftRender : public QMainWindow
 {
