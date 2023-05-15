@@ -13,6 +13,16 @@ bool InsideTriangle(int x, int y, Eigen::Vector3f v0, Eigen::Vector3f v1, Eigen:
 	return false;
 }
 
+float Barycentric2DFunction(Eigen::Vector3f begin, Eigen::Vector3f end, Eigen::Vector3f parameter)
+{
+	//fab(x,y) = (ya - yb)x + (xb - xa)y + xa * yb - xb * ya;
+	float xa = begin.x(), ya = begin.y();
+	float xb = end.x(), yb = end.y();
+	float x = parameter.x(), y = parameter.y();
+	return (ya - yb) * x + (xb - xa) * y + xa * yb - xb * ya;
+
+}
+
 void Drawer::DrawPixel(const Eigen::Vector2f& point, const Eigen::Vector3f& color)
 {
 	int x = point.x(), y = point.y();
@@ -51,8 +61,14 @@ void Drawer::DrawTriangle(Eigen::Vector3f v0, Eigen::Vector3f v1, Eigen::Vector3
 	{
 		for (int y = min_y; y <= max_y; y++)
 		{
-			if (!InsideTriangle(x, y, v0, v1, v2)) continue;
-			DrawPixel(Eigen::Vector2f(x, y), Eigen::Vector3f(0, 0, 0));
+			// if (!InsideTriangle(x, y, v0, v1, v2)) continue;
+			Eigen::Vector3f v(x, y, 1.0f);
+			float alpha = Barycentric2DFunction(v1, v2, v) / Barycentric2DFunction(v1, v2, v0);
+			float beta = Barycentric2DFunction(v2, v0, v) / Barycentric2DFunction(v2, v0, v1);
+			float gamma = Barycentric2DFunction(v0, v1, v) / Barycentric2DFunction(v0, v1, v2);
+			if (!(alpha > 0 && beta > 0 && gamma > 0)) continue;
+
+			DrawPixel(Eigen::Vector2f(x, y), color);
 		}
 	}
 }
