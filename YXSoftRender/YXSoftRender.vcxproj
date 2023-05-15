@@ -96,6 +96,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\tiny_obj_loader.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Configuration.h" />
