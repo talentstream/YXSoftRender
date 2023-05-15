@@ -4,7 +4,7 @@ void Renderer::Render()
 {
 	QRgb value;
 	value = qRgb(0, 0, 0);
-	configuration.canvas.setPixel(0, 1, value);
+	/*configuration.canvas.setPixel(0, 1, value);
 	configuration.canvas.setPixel(0, 2, value);
 	configuration.canvas.setPixel(0, 3, value);
 	configuration.canvas.setPixel(1, 1, value);
@@ -21,7 +21,11 @@ void Renderer::Render()
 		configuration.canvas.setPixel(i, 1, value);
 		configuration.canvas.setPixel(i, 2, value);
 		configuration.canvas.setPixel(i, 3, value);
-	}
+	}*/
+	Drawer::DrawLine(Eigen::Vector2f(100, 100), Eigen::Vector2f(200, 200), Eigen::Vector3f(255, 0, 0));
+	Drawer::DrawLine(Eigen::Vector2f(100, 100), Eigen::Vector2f(100, 200), Eigen::Vector3f(0, 255, 0));
+	Drawer::DrawLine(Eigen::Vector2f(100, 100), Eigen::Vector2f(200, 100), Eigen::Vector3f(0, 0, 255));
+
 }
 
 void Renderer::Display()

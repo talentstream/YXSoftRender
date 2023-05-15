@@ -88,12 +88,14 @@
     <QtUic Include="YXSoftRender.ui" />
     <QtMoc Include="YXSoftRender.h" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="YXSoftRender.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Drawer.h" />
     <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <ItemGroup>

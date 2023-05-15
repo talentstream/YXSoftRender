@@ -5,8 +5,8 @@
 
 typedef struct DisplayResolution
 {
-	int width = 1600;
-	int height = 900;
+	int width = 800;
+	int height = 450;
 }Resolution;
 
 class Configuration

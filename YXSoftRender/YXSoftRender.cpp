@@ -11,7 +11,7 @@ YXSoftRender::YXSoftRender(QWidget *parent)
     QSize size = QSize(configuration.resolution.width, configuration.resolution.height);
     label->setFixedSize(size);
     this->setFixedSize(size);
-    configuration.canvas = QImage(1600, 900, QImage::Format_RGB32);
+    configuration.canvas = QImage(size, QImage::Format_RGB32);
     configuration.label = label;
 }
 
