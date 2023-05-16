@@ -1,5 +1,8 @@
 #pragma once
 
+#define TINYOBJLOADER_IMPLEMENTATION
+#include "tiny_obj_loader.h"
+
 #include<vector>
 
 #include<qimage.h>
@@ -8,7 +11,9 @@
 #include"Drawer.h"
 #include"Color.h"
 #include"Buffer.h"
-#include"tiny_obj_loader.h"
+#include"Mesh.h"
+
+
 
 class Renderer
 {
@@ -21,4 +26,3 @@ public:
 private:
 	std::vector<Mesh> meshes;
 };
-

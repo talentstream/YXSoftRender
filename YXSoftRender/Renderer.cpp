@@ -13,10 +13,29 @@ void Renderer::LoadMeshes(const std::string model_path)
 
 	for (const auto& shape : shapes)
 	{
+		Mesh mesh{};
 		for (const auto& index : shape.mesh.indices)
 		{
-			
+			Eigen::Vector3f vertex;
+			vertex.x() = attrib.vertices[3 * index.vertex_index + 0];
+			vertex.y() = attrib.vertices[3 * index.vertex_index + 1];
+			vertex.z() = attrib.vertices[3 * index.vertex_index + 2];
+			mesh.vertices.emplace_back(vertex);
+
+			Eigen::Vector3f normal;
+			normal.x() = attrib.normals[3 * index.normal_index + 0];
+			normal.y() = attrib.normals[3 * index.normal_index + 1];
+			normal.z() = attrib.normals[3 * index.normal_index + 2];
+			mesh.normals.emplace_back(normal);
+
+			Eigen::Vector2f texCoord;
+			texCoord.x() = attrib.texcoords[2 * index.texcoord_index + 0];
+			texCoord.y() = attrib.texcoords[2 * index.texcoord_index + 1];
+			mesh.texCoords.emplace_back(texCoord);
+
+			mesh.indices.push_back(mesh.indices.size());
 		}
+		meshes.emplace_back(mesh);
 	}
 }	
 

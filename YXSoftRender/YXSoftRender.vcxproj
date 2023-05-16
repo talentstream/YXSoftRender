@@ -97,12 +97,13 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\tiny_obj_loader.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Drawer.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="tiny_obj_loader.h" />
     <ClInclude Include="Transform.h" />
     <QtMoc Include="RenderThread.h" />
   </ItemGroup>
