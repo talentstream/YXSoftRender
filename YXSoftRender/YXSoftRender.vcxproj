@@ -92,6 +92,7 @@
     <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RenderThread.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="YXSoftRender.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -102,6 +103,7 @@
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Transform.h" />
     <QtMoc Include="RenderThread.h" />
   </ItemGroup>
   <ItemGroup>
